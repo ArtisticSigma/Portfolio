@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Experience – Raveen Prakash V S</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <div class="brand"><img src="assets/logo.png" alt="logo"><span>Raveen Prakash V S</span></div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="experience.html" class="active">Experience</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="section">
+    <h3>Experience</h3>
+    <p style="text-align:center;color:var(--muted);margin-top:-24px;margin-bottom:36px;font-size:15px;">
+      My learning journey, certifications &amp; hands-on work.
+    </p>
+
+    <div class="internship-block" style="margin-bottom:28px;">
+      <h4>🎓 Education</h4>
+      <p><strong style="color:#e8eefc">B.E. Computer Science &amp; Engineering</strong></p>
+      <p>Annamalai University, Chidambaram</p>
+      <p style="color:var(--muted);font-size:13px;margin-top:6px;">Currently pursuing</p>
+    </div>
+
+    <div class="internship-block" style="margin-bottom:28px;">
+      <h4>🏢 Internships</h4>
+      <div class="exp-entry">
+        <div class="exp-dot"></div>
+        <div class="exp-info">
+          <p class="exp-title">Arduino Intern</p>
+          <p class="exp-org">Hailstone Technology, Coimbatore</p>
+        </div>
+      </div>
+      <div class="exp-entry">
+        <div class="exp-dot"></div>
+        <div class="exp-info">
+          <p class="exp-title">UI/UX Intern</p>
+          <p class="exp-org">NoviTech R&amp;D Private Limited, Coimbatore</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="internship-block" style="margin-bottom:28px;">
+      <h4>💼 Works</h4>
+      <div class="exp-entry">
+        <div class="exp-dot"></div>
+        <div class="exp-info">
+          <p class="exp-title">Web Content Writer</p>
+          <p class="exp-org">Mindaneous</p>
+        </div>
+      </div>
+      <div class="exp-entry exp-open">
+        <div class="exp-dot exp-dot-active"></div>
+        <div class="exp-info">
+          <p class="exp-title">Currently looking for internship opportunities</p>
+          <p class="exp-org"><a href="contact.html" style="color:var(--accent)">Get in Touch →</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="internship-block" style="margin-bottom:28px;">
+      <h4>🏆 Certificates</h4>
+      <p>View my completed courses, workshops, and certifications on LinkedIn.</p>
+      <div style="margin-top:16px;">
+        <a class="btn ghost" href="https://www.linkedin.com/in/raveen-prakash-v-s-525323292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">View Certificates</a>
+      </div>
+    </div>
+
+    <div class="internship-block">
+      <h4>🚀 Projects &amp; Self-Learning</h4>
+      <p>Built an Advanced File Locker using Python, Tkinter &amp; OpenCV. Designed this entire portfolio in Figma. Actively practicing UI/UX, web development, and hardware troubleshooting through self-driven projects.</p>
+      <div style="margin-top:16px;">
+        <a class="btn ghost" href="projects.html">View Projects</a>
+      </div>
+    </div>
+
+  </section>
+</main>
+<footer class="footer">© 2025 Raveen Prakash V S</footer>
+<button id="topBtn" onclick="scrollTop()">Top</button>
+<script src="script.js"></script>
+
+<!-- ── Floating CV Button ── -->
+<button class="cv-float" onclick="openCVModal()" aria-label="Download CV">
+  <span class="cv-icon-box">📄</span>
+  <span class="cv-label">Download CV</span>
+</button>
+
+<!-- ── CV Modal ── -->
+<div class="cv-overlay" id="cvOverlay">
+  <div class="cv-modal">
+    <button class="cv-close" onclick="closeCVModal()" aria-label="Close">✕</button>
+    <h4>📄 Download CV</h4>
+    <p>Enter your details to download — helps me know who's interested!</p>
+
+    <div class="cv-field">
+      <label>Your Name</label>
+      <input type="text" id="cvName" placeholder="e.g. John Smith" autocomplete="off">
+    </div>
+    <div class="cv-field">
+      <label>Phone Number</label>
+      <input type="tel" id="cvPhone" placeholder="e.g. +91 98765 43210" autocomplete="off">
+    </div>
+
+    <div class="cv-captcha" id="cvCaptcha" onclick="toggleCaptcha()">
+      <div class="cv-captcha-check" id="cvCheck"></div>
+      <span class="cv-captcha-text">I'm not a robot</span>
+      <span class="cv-captcha-logo">🛡️<br>Verify</span>
+    </div>
+
+    <button class="cv-dl-btn" id="cvDlBtn" disabled onclick="submitAndDownload()">
+      ⬇ Download CV
+    </button>
+    <p class="cv-note">Your details help Raveen know who viewed his profile.</p>
+  </div>
+</div>
+
+<script>
+function openCVModal() {
+  document.getElementById('cvOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCVModal() {
+  document.getElementById('cvOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('cvName').value = '';
+  document.getElementById('cvPhone').value = '';
+  document.getElementById('cvCaptcha').classList.remove('checked');
+  document.getElementById('cvCheck').textContent = '';
+  document.getElementById('cvDlBtn').disabled = true;
+  captchaDone = false;
+}
+document.getElementById('cvOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeCVModal();
+});
+
+var captchaDone = false;
+function toggleCaptcha() {
+  if (captchaDone) return;
+  captchaDone = true;
+  var box = document.getElementById('cvCaptcha');
+  var chk = document.getElementById('cvCheck');
+  box.classList.add('checked');
+  chk.textContent = '✓';
+  checkForm();
+}
+function checkForm() {
+  var name  = document.getElementById('cvName').value.trim();
+  var phone = document.getElementById('cvPhone').value.trim();
+  document.getElementById('cvDlBtn').disabled = !(name && phone && captchaDone);
+}
+document.getElementById('cvName').addEventListener('input', checkForm);
+document.getElementById('cvPhone').addEventListener('input', checkForm);
+
+function submitAndDownload() {
+  var name  = document.getElementById('cvName').value.trim();
+  var phone = document.getElementById('cvPhone').value.trim();
+
+  // Send to Formspree (replace mzdogwgz with your Formspree form ID)
+  fetch('https://formspree.io/f/mzdogwgz', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ name: name, phone: phone, page: location.href, _subject: 'CV Download – ' + name })
+  }).catch(function(){});
+
+  // Trigger download regardless of fetch result
+  var a = document.createElement('a');
+  a.href = 'assets/RaveenPrakash-CV.docx';
+  a.download = 'RaveenPrakash-CV.docx';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  closeCVModal();
+}
+</script>
+</body>
+</html>
